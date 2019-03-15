@@ -17,8 +17,9 @@ class Image(models.Model):
    image_url = models.ImageField(upload_to = "images/")
    name = models.CharField(max_length = 30)
    description = models.TextField()
-   location = models.ForeignKey(Location)
    category = models.ForeignKey(Category)
+
+
 
    def save_image(self):
        """
@@ -69,3 +70,10 @@ class Image(models.Model):
 
    def __str__(self):
        return self.name
+
+
+class PostForm(forms.ModelForm):
+    class Meta:
+        model=Post
+        exclude=['username','post_date','likes','profile_pic']
+        
