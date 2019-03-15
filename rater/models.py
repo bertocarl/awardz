@@ -5,7 +5,7 @@ class Profile(models.Model):
     name = models.CharField(max_length=255, default="", blank="")
     image = models.ImageField(default='default.jpg', upload_to='profiles_pics')
     bio = models.TextField(blank="", default="")
-    phonenumber = models.IntegerField(max_length=140, blank="",default="")
+    project = models.CharField(max_length=255, default='', blank='')
 
     def __str__(self):
         return f'{self.user.username} Profile'
@@ -76,4 +76,3 @@ class PostForm(forms.ModelForm):
     class Meta:
         model=Post
         exclude=['username','post_date','likes','profile_pic']
-        

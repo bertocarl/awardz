@@ -60,6 +60,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rater',
+    'bootstrap4',
+    'django_forms_bootstrap',
 ]
 
 MIDDLEWARE = [
