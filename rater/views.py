@@ -4,6 +4,10 @@ from .forms import NewsLetterForm
 
 
 @login_required(login_url='/accounts/login/')
+def home(request):
+    return render(request, 'home.html')
+    
+@login_required(login_url='/accounts/login/')
 def NewsLetter(request):
     if request.method == 'POST':
         form = NewsLetterForm(request.POST)
