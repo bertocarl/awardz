@@ -8,45 +8,18 @@
     <title>{{title}}</title>
     {% block styles%}
         {% bootstrap_css %}
-        <link rel="stylesheet" href="../../static/css/locations.css">
-        <link href="https://fonts.googleapis.com/css?family=Maven+Pro" rel="stylesheet">
+      
     {% endblock %}
 </head>
 <body>
     {% include "navbar.html" %}
-    <div id="locations">
-        <div class="container">
-        <div class="row">
-            <div class=" col-sm-12 col-md-3" style="margin-right:25px;">
-                <img  src="/static/images/rwanda.jpeg"  alt=""  style="margin-right:25px; width:300px;">
-                <a href="{% url 'locations' 'Rwanda'%}"><h3 class="text-center">Rwanda</h3></a>
-            </div>
-            <div class=" col-sm-12 col-md-3"  style="margin-right:25px;">
-                <img src="/static/images/bangladesh.jpeg" alt=""  style="margin-right:25px; width:300px;">
-                <a href="{% url 'locations' 'Bangladesh' %}"><h3 class="text-center">Bangladesh</h3></a>
-            </div>
-            <div class=" col-sm-12 col-md-3"  style="margin-right:25px;">
-                <img class="location-img" src="/static/images/india.jpeg" alt=""  style="margin-right:25px;">
-                <a href="{% url 'locations' 'India'%}"><h3 class="text-center">India</h3></a>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-12 col-md-3"  style="margin-right:25px;">
-                <img  src="/static/images/uganda.jpeg" alt=""  style="margin-right:25px;" >
-                <a href="{% url 'locations' 'Uganda'%}"><h3 class="text-center">Uganda</a>
-            </div>
-            <div class=" col-sm-12 col-md-3" style="margin-right:25px;" >
-                <img  src="/static/images/tanzania.jpeg" alt="" style="size:100%;"  style="margin-right:25px;">
-                <a href="{% url 'locations' 'Tanzania'%}"><h3 class="text-center">Tanzania</h3></a>
-            </div>
-           
-            <div class=" col-sm-12 col-md-3"  style="margin-right:25px;">
-                    <img src="/static/images/singapore.jpeg" alt=""  style="margin-right:25px;">
-                    <a href="{% url 'locations' 'Singapore'%}"><h3 class="text-center">Singapore</a>
-                </div>
-            </div>
-        </div>
-    </div>
+    
+    <form  action="" method="post">
+        {%csrf_token%}
+    
+        {% bootstrap_form letterForm layout='inline' %}
+        <input type="submit" value="Subscribe">
+      </form>
     {% block scripts %}
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         {% bootstrap_javascript %}

@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from .forms import NewsLetterForm
 
+
+@login_required(login_url='/accounts/login/')
 def NewsLetter(request):
     if request.method == 'POST':
         form = NewsLetterForm(request.POST)
@@ -9,7 +11,7 @@ def NewsLetter(request):
         print('valid')
     else:
         form = NewsLetterForm()
-    return render(request, 'newsletter.html', {letterForm":form})
+    return render(request, 'newsletter.html', {"NewsLetterForm":form})
    
 
 
