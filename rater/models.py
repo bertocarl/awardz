@@ -1,7 +1,9 @@
 from django.db import models
+from django import forms
 
+# from django.contrib.auth import User
 class Profile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    # user = models.OneToOneField(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=255, default="", blank="")
     image = models.ImageField(default='default.jpg', upload_to='profiles_pics')
     bio = models.TextField(blank="", default="")
@@ -17,7 +19,7 @@ class Image(models.Model):
    image_url = models.ImageField(upload_to = "images/")
    name = models.CharField(max_length = 30)
    description = models.TextField()
-   category = models.ForeignKey(Category)
+   
 
 
 
@@ -72,7 +74,6 @@ class Image(models.Model):
        return self.name
 
 
-class PostForm(forms.ModelForm):
-    class Meta:
-        model=Post
-        exclude=['username','post_date','likes','profile_pic']
+class NewsLetterForm(forms.Form):
+    your_name = forms.CharField(label='First Name',max_length=30)
+    email = forms.EmailField(label='Email')
