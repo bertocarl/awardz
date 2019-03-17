@@ -8,7 +8,7 @@ By: Albert Carlos Omware
 This web-app allows a user to create a Profile,Category,Country,Technology,Color and Projects that are all under his username allowing other users to vote for them and visit the particular projects site.
 
 ## Setup/Installation Requirements
-* Live site can be accessed from the following link  https://awardz.herokuapp.com
+* Live site can be accessed from the following link  https://awardz.herokuapp.com/
 
 
 ### Known Bugs
@@ -22,7 +22,7 @@ Given:All projects<br>
 When: Url is changed to directory page<br>
 Then: All projects are displayed<br>
 
-* Program should show the project with the highest number of votes on the caraousel on the home page<br>
+* Program should show the project with the highest number of votes on the home page<br>
 Given:A Project with the highest votes<br>
 When: Home page is accessed <br>
 Then: Project with highest votes is displayed.<br>
@@ -44,7 +44,7 @@ Then: User session is ended<br>
 
 
 ### Technologies Used
-* vscode was the source code editor of choice.
+* Vscode was the source code editor of choice.
 * Git and Github were used as my local and online repositories respectively.
 * Django was used as the framework of choice
 * Heroku was used in deploying the live site

@@ -186,33 +186,69 @@ class ProfileList(APIView):
         all_profiles = Profile.objects.all()
         serializers = ProfileSerializer(all_profiles, many=True)
         return Response(serializers.data)
+    def post(self, request, format=None):
+        serializers = ProfileSerializer(data=request.data)
+        if serializers.is_valid():
+            serializers.save()
+            return Response(serializers.data, status=status.HTTP_201_CREATED)
+        return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class ProjectList(APIView):
     def get(self, request, format=None):
         all_projects = Project.objects.all()
         serializers = ProjectSerializer(all_projects, many=True)
         return Response(serializers.data)
+    def post(self, request, format=None):
+        serializers = ProjectSerializer(data=request.data)
+        if serializers.is_valid():
+            serializers.save()
+            return Response(serializers.data, status=status.HTTP_201_CREATED)
+        return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class categoriesList(APIView):
     def get(self, request, format=None):
         all_categories = categories.objects.all()
         serializers = categoriesSerializer(all_categories, many=True)
         return Response(serializers.data)
+    def post(self, request, format=None):
+        serializers = categoriesSerializer(data=request.data)
+        if serializers.is_valid():
+            serializers.save()
+            return Response(serializers.data, status=status.HTTP_201_CREATED)
+        return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class technologiesList(APIView):
     def get(self, request, format=None):
         all_technologies = technologies.objects.all()
         serializers = technologiesSerializer(all_technologies, many=True)
         return Response(serializers.data)
+    def post(self, request, format=None):
+        serializers = technologiesSerializer(data=request.data)
+        if serializers.is_valid():
+            serializers.save()
+            return Response(serializers.data, status=status.HTTP_201_CREATED)
+        return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class colorsList(APIView):
     def get(self, request, format=None):
         all_colors = colors.objects.all()
         serializers = colorsSerializer(all_colors, many=True)
         return Response(serializers.data)
+    def post(self, request, format=None):
+        serializers = colorsSerializer(data=request.data)
+        if serializers.is_valid():
+            serializers.save()
+            return Response(serializers.data, status=status.HTTP_201_CREATED)
+        return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class countriesList(APIView):
     def get(self, request, format=None):
         all_countries = countries.objects.all()
         serializers = countriesSerializer(all_countries, many=True)
         return Response(serializers.data)
+    def post(self, request, format=None):
+        serializers = countriesSerializer(data=request.data)
+        if serializers.is_valid():
+            serializers.save()
+            return Response(serializers.data, status=status.HTTP_201_CREATED)
+        return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)

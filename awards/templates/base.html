@@ -8,12 +8,12 @@
     {% if title %}
     <title>{{title}}</title>
     {% else %}
-    <title>Awwwards - Website Awards - Best Web Design Trends</title>
+    <title>Awardz- Best Web Design Trends</title>
     {% endif %}
 
     {% block styles %}
     {% bootstrap_css %}
-    <!-- <link rel="stylesheet" href="{% static 'css/navbar.css' %}"> -->
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
     {% endblock %}
 
@@ -25,14 +25,14 @@
 
     {% include 'navbar.html' %}
     {% block content %}
-    <!-- <h1 class="text-center">Instagram</h1> -->
+    
 
     {% endblock %}
 
     {% block scripts %}
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <!-- <script src= "{% static 'js/ajax.js'%}"></script> -->
+    <script src= "{% static 'js/ajax.js'%}"></script>
 
     {% bootstrap_javascript %}
     {% endblock %}
