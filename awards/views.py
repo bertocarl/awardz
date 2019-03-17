@@ -15,9 +15,9 @@ from django.contrib.auth.models import User
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from .serializer import ProfileSerializer,ProjectSerializer,technologiesSerializer,colorsSerializer,countriesSerializer,categoriesSerializer
+from .permissions import IsAdminOrReadOnly
 
 
-# Create your views here.
 def index(request):
     date = dt.date.today()
     winners=Project.objects.all()[:4]
@@ -182,6 +182,7 @@ def user_profile(request,username):
 
 
 class ProfileList(APIView):
+    permission_classes = (IsAdminOrReadOnly,)
     def get(self, request, format=None):
         all_profiles = Profile.objects.all()
         serializers = ProfileSerializer(all_profiles, many=True)
@@ -194,60 +195,75 @@ class ProfileList(APIView):
         return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class ProjectList(APIView):
+    permission_classes = (IsAdminOrReadOnly,)
     def get(self, request, format=None):
         all_projects = Project.objects.all()
         serializers = ProjectSerializer(all_projects, many=True)
+
         return Response(serializers.data)
     def post(self, request, format=None):
         serializers = ProjectSerializer(data=request.data)
+        
         if serializers.is_valid():
             serializers.save()
             return Response(serializers.data, status=status.HTTP_201_CREATED)
         return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class categoriesList(APIView):
+    permission_classes = (IsAdminOrReadOnly,)
     def get(self, request, format=None):
         all_categories = categories.objects.all()
         serializers = categoriesSerializer(all_categories, many=True)
+
         return Response(serializers.data)
     def post(self, request, format=None):
         serializers = categoriesSerializer(data=request.data)
+        
         if serializers.is_valid():
             serializers.save()
             return Response(serializers.data, status=status.HTTP_201_CREATED)
         return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class technologiesList(APIView):
+    permission_classes = (IsAdminOrReadOnly,)
     def get(self, request, format=None):
         all_technologies = technologies.objects.all()
         serializers = technologiesSerializer(all_technologies, many=True)
+
         return Response(serializers.data)
     def post(self, request, format=None):
         serializers = technologiesSerializer(data=request.data)
+        
         if serializers.is_valid():
             serializers.save()
             return Response(serializers.data, status=status.HTTP_201_CREATED)
         return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class colorsList(APIView):
+    permission_classes = (IsAdminOrReadOnly,)
     def get(self, request, format=None):
         all_colors = colors.objects.all()
         serializers = colorsSerializer(all_colors, many=True)
+        
         return Response(serializers.data)
     def post(self, request, format=None):
         serializers = colorsSerializer(data=request.data)
+        
         if serializers.is_valid():
             serializers.save()
             return Response(serializers.data, status=status.HTTP_201_CREATED)
         return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class countriesList(APIView):
+    permission_classes = (IsAdminOrReadOnly,)
     def get(self, request, format=None):
         all_countries = countries.objects.all()
         serializers = countriesSerializer(all_countries, many=True)
+        
         return Response(serializers.data)
     def post(self, request, format=None):
         serializers = countriesSerializer(data=request.data)
+        
         if serializers.is_valid():
             serializers.save()
             return Response(serializers.data, status=status.HTTP_201_CREATED)
