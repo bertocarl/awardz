@@ -3,6 +3,8 @@
 {% load static %}
 
 {% block content %}
+<body>
+
 <div class="container">
   <div class="row">
     <!-- Empty div -->
@@ -54,8 +56,11 @@
 </div>
 
 <style>
+.body{
+  background-color: #465362;
+}
 .panel{
-  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(../img/background.jpg) fixed;
+  background-color: #1985A1;
 }
 p, label,a{
   color:white;
@@ -69,4 +74,6 @@ input{
 }
 
 </style>
+
+</body>
 {% endblock %}

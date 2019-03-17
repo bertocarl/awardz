@@ -5,7 +5,7 @@ from django.db.models import Q
 
 import datetime as dt
 
-# Create your models here.
+
 class categories(models.Model):
     categories= models.CharField(max_length=100)
 
@@ -91,7 +91,7 @@ class Project(models.Model):
 
     @classmethod
     def search_project(cls,search_term):
-        # projects = cls.objects.filter(Q(username__username=search_term) | Q(title__icontains=search_term) | Q(colors__colors=search_term) | Q(technologies__technologies=search_term) | Q(categories__categories=search_term) | Q(country__countries=search_term))
+       
         projects = cls.objects.filter(Q(username__username=search_term) | Q(title__icontains=search_term) | Q(country__countries=search_term) | Q(overall_score__icontains=search_term))
         return projects
 
