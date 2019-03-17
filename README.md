@@ -8,7 +8,7 @@ By: Albert Carlos Omware
 This web-app allows a user to create a Profile,Category,Country,Technology,Color and Projects that are all under his username allowing other users to vote for them and visit the particular projects site.
 
 ## Setup/Installation Requirements
-* Live site can be accessed from the following link https://
+* Live site can be accessed from the following link  https://awardz.herokuapp.com
 
 
 ### Known Bugs
