@@ -15,7 +15,7 @@
 {% block content %}
 
     <div class="carousel-inner">
-      <!-- <div class="landingpage" style="background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ), url({% static 'img/cocaine.png'%}) fixed;"> -->
+     
       <div class="landingpage" >
         <img src="{{project.landing_page.url}}" class="landingpage-img">
         <div class="time">
@@ -55,7 +55,7 @@
 
 <div class="text-center">
   <h2>{{project.description | safe}}</h2>
-  <!-- <p>{{project.technologies.all}}</p> -->
+
 <div class="horizontal">
 {% for technology in project.technologies.all %}
   <button class="btn btn-primary inline">{{ technology }}</button>
