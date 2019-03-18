@@ -14,7 +14,7 @@ from django.contrib.auth.models import User
 
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from .serializer import ProfileSerializer,ProjectSerializer,technologiesSerializer,colorsSerializer,countriesSerializer,categoriesSerializer
+from .serializer import ProfileSerializer,ProjectSerializer
 from .permissions import IsAdminOrReadOnly
 
 
@@ -233,110 +233,110 @@ class ProjectList(APIView):
         merch.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
-class categoriesList(APIView):
-    permission_classes = (IsAdminOrReadOnly,)
-    def get(self, request, format=None):
-        all_categories = categories.objects.all()
-        serializers = categoriesSerializer(all_categories, many=True)
+# class categoriesList(APIView):
+#     permission_classes = (IsAdminOrReadOnly,)
+#     def get(self, request, format=None):
+#         all_categories = categories.objects.all()
+#         serializers = categoriesSerializer(all_categories, many=True)
 
-        return Response(serializers.data)
-    def post(self, request, format=None):
-        serializers = categoriesSerializer(data=request.data)
+#         return Response(serializers.data)
+#     def post(self, request, format=None):
+#         serializers = categoriesSerializer(data=request.data)
         
-        if serializers.is_valid():
-            serializers.save()
-            return Response(serializers.data, status=status.HTTP_201_CREATED)
-        return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
-    def put(self, request, pk, format=None):
-        merch = self.get_merch(pk)
-        serializers = categoriesSerializer(merch, request.data)
-        if serializers.is_valid():
-            serializers.save()
-            return Response(serializers.data)
-        else:
-            return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
-    def delete(self, request, pk, format=None):
-        merch = self.get_merch(pk)
-        merch.delete()
-        return Response(status=status.HTTP_204_NO_CONTENT)
+#         if serializers.is_valid():
+#             serializers.save()
+#             return Response(serializers.data, status=status.HTTP_201_CREATED)
+#         return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
+#     def put(self, request, pk, format=None):
+#         merch = self.get_merch(pk)
+#         serializers = categoriesSerializer(merch, request.data)
+#         if serializers.is_valid():
+#             serializers.save()
+#             return Response(serializers.data)
+#         else:
+#             return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
+#     def delete(self, request, pk, format=None):
+#         merch = self.get_merch(pk)
+#         merch.delete()
+#         return Response(status=status.HTTP_204_NO_CONTENT)
 
-class technologiesList(APIView):
-    permission_classes = (IsAdminOrReadOnly,)
-    def get(self, request, format=None):
-        all_technologies = technologies.objects.all()
-        serializers = technologiesSerializer(all_technologies, many=True)
+# class technologiesList(APIView):
+#     permission_classes = (IsAdminOrReadOnly,)
+#     def get(self, request, format=None):
+#         all_technologies = technologies.objects.all()
+#         serializers = technologiesSerializer(all_technologies, many=True)
 
-        return Response(serializers.data)
-    def post(self, request, format=None):
-        serializers = technologiesSerializer(data=request.data)
+#         return Response(serializers.data)
+#     def post(self, request, format=None):
+#         serializers = technologiesSerializer(data=request.data)
         
-        if serializers.is_valid():
-            serializers.save()
-            return Response(serializers.data, status=status.HTTP_201_CREATED)
-        return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
-    def put(self, request, pk, format=None):
-        merch = self.get_merch(pk)
-        serializers = technologiesSerializer(merch, request.data)
-        if serializers.is_valid():
-            serializers.save()
-            return Response(serializers.data)
-        else:
-            return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
-    def delete(self, request, pk, format=None):
-        merch = self.get_merch(pk)
-        merch.delete()
-        return Response(status=status.HTTP_204_NO_CONTENT)
+#         if serializers.is_valid():
+#             serializers.save()
+#             return Response(serializers.data, status=status.HTTP_201_CREATED)
+#         return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
+#     def put(self, request, pk, format=None):
+#         merch = self.get_merch(pk)
+#         serializers = technologiesSerializer(merch, request.data)
+#         if serializers.is_valid():
+#             serializers.save()
+#             return Response(serializers.data)
+#         else:
+#             return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
+#     def delete(self, request, pk, format=None):
+#         merch = self.get_merch(pk)
+#         merch.delete()
+#         return Response(status=status.HTTP_204_NO_CONTENT)
 
-class colorsList(APIView):
-    permission_classes = (IsAdminOrReadOnly,)
-    def get(self, request, format=None):
-        all_colors = colors.objects.all()
-        serializers = colorsSerializer(all_colors, many=True)
+# class colorsList(APIView):
+#     permission_classes = (IsAdminOrReadOnly,)
+#     def get(self, request, format=None):
+#         all_colors = colors.objects.all()
+#         serializers = colorsSerializer(all_colors, many=True)
         
-        return Response(serializers.data)
-    def post(self, request, format=None):
-        serializers = colorsSerializer(data=request.data)
+#         return Response(serializers.data)
+#     def post(self, request, format=None):
+#         serializers = colorsSerializer(data=request.data)
         
-        if serializers.is_valid():
-            serializers.save()
-            return Response(serializers.data, status=status.HTTP_201_CREATED)
-        return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
-    def put(self, request, pk, format=None):
-        merch = self.get_merch(pk)
-        serializers = colorsSerializer(merch, request.data)
-        if serializers.is_valid():
-            serializers.save()
-            return Response(serializers.data)
-        else:
-            return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
-    def delete(self, request, pk, format=None):
-        merch = self.get_merch(pk)
-        merch.delete()
-        return Response(status=status.HTTP_204_NO_CONTENT)
+#         if serializers.is_valid():
+#             serializers.save()
+#             return Response(serializers.data, status=status.HTTP_201_CREATED)
+#         return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
+#     def put(self, request, pk, format=None):
+#         merch = self.get_merch(pk)
+#         serializers = colorsSerializer(merch, request.data)
+#         if serializers.is_valid():
+#             serializers.save()
+#             return Response(serializers.data)
+#         else:
+#             return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
+#     def delete(self, request, pk, format=None):
+#         merch = self.get_merch(pk)
+#         merch.delete()
+#         return Response(status=status.HTTP_204_NO_CONTENT)
 
-class countriesList(APIView):
-    permission_classes = (IsAdminOrReadOnly,)
-    def get(self, request, format=None):
-        all_countries = countries.objects.all()
-        serializers = countriesSerializer(all_countries, many=True)
+# class countriesList(APIView):
+#     permission_classes = (IsAdminOrReadOnly,)
+#     def get(self, request, format=None):
+#         all_countries = countries.objects.all()
+#         serializers = countriesSerializer(all_countries, many=True)
         
-        return Response(serializers.data)
-    def post(self, request, format=None):
-        serializers = countriesSerializer(data=request.data)
+#         return Response(serializers.data)
+#     def post(self, request, format=None):
+#         serializers = countriesSerializer(data=request.data)
         
-        if serializers.is_valid():
-            serializers.save()
-            return Response(serializers.data, status=status.HTTP_201_CREATED)
-        return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
-    def put(self, request, pk, format=None):
-        merch = self.get_merch(pk)
-        serializers = countriesSerializer(merch, request.data)
-        if serializers.is_valid():
-            serializers.save()
-            return Response(serializers.data)
-        else:
-            return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
-    def delete(self, request, pk, format=None):
-        merch = self.get_merch(pk)
-        merch.delete()
-        return Response(status=status.HTTP_204_NO_CONTENT)
+#         if serializers.is_valid():
+#             serializers.save()
+#             return Response(serializers.data, status=status.HTTP_201_CREATED)
+#         return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
+#     def put(self, request, pk, format=None):
+#         merch = self.get_merch(pk)
+#         serializers = countriesSerializer(merch, request.data)
+#         if serializers.is_valid():
+#             serializers.save()
+#             return Response(serializers.data)
+#         else:
+#             return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
+#     def delete(self, request, pk, format=None):
+#         merch = self.get_merch(pk)
+#         merch.delete()
+#         return Response(status=status.HTTP_204_NO_CONTENT)
