@@ -9,4 +9,4 @@ Follow this link to activate your account : {{site}}/accounts/activate/{{activat
 Have fun and don't hesitate to contact us with your feedback.
 
 With Regards,
-Awwwards Team
+Awardz Team
